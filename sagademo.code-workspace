@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "registry"
+		},
+		{
+			"path": "inventory"
+		},
+		{
+			"path": "cart"
+		},
+		{
+			"path": "order"
+		},
+		{
+			"path": "payment"
+		},
+		{
+			"path": "gateway"
+		},
+		{
+			"path": "release"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "disabled",
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}

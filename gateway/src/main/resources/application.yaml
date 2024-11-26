@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: cart
+          uri: lb://cart
+          predicates:
+            - Path=/cart/**
+        - id: inventory
+          uri: lb://inventory
+          predicates:
+            - Path=/inventory/**
+        - id: order
+          uri: lb://order
+          predicates:
+            - Path=/order/**
+        - id: payment
+          uri: lb://payment
+          predicates:
+            - Path=/payment/**
+        - id: registry
+          uri: http://localhost:8761
+          predicates:
+            - Path=/registry/**
+          filters:
+            - RewritePath=/registry, /
+            - RewritePath=/registry/(?<segment>.*), /$\{segment}
+        - id: eureka
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+        - id: zipkin
+          uri: http://localhost:9411
+          predicates:
+            - Path=/zipkin/**
